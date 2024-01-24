@@ -4,25 +4,25 @@ package kr.bi
 
 fun main() {
     val n = readln().toInt()
-    val names = List(n) { readln() }
+    val names = Array(n) { readln() }
     val pattern = findPattern(names)
 
     println(pattern)
 }
 
-fun findPattern(names: List<String>): String {
+fun findPattern(names: Array<String>): String {
     val length = names[0].length
-    val result = StringBuilder()
+    var result = ""
 
     for (i in 0 until length) {
         val ch = names[0][i]
 
         if (names.all { it[i] == ch }) {
-            result.append(ch)
+            result += ch
         } else {
-            result.append('?')
+            result += '?'
         }
     }
 
-    return result.toString()
+    return result
 }
